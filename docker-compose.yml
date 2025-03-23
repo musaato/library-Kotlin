@@ -1,0 +1,31 @@
+services:
+  db:
+    container_name: db
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: library_jooq
+    ports:
+      - "5433:5432"
+    volumes: # volume used to persist data
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    container_name: library-Kotlin
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "7777:7777"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/library_jooq
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+volumes:
+  pgdata: {}

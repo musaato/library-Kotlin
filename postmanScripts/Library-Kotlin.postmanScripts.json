@@ -1,0 +1,228 @@
+{
+	"info": {
+		"name": "Library-Kotlin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BookFindByIsbn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7777/book/find?isbn=9781234568001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"book",
+						"find"
+					],
+					"query": [
+						{
+							"key": "isbn",
+							"value": "9781234568001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BookFindAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7777/book?pageNum=3&pageSize=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"book"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "3"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BookAddForm",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"isbn\": \"9781234568007\",\r\n        \"title\": \"Mystery of the Old House07\",\r\n        \"price\": 70.99,\r\n        \"publicationStatus\": \"published\",\r\n        \"bookCover\": \"http://example.com/cover07.jpg\",\r\n        \"description\": \"A gripping mystery novel07.\",\r\n        \"publicationDate\": \"2024-04-12T05:30:00.000\",\r\n\t\t\"authors\":[\r\n\t\t {\r\n            \"firstName\": \"Keith07\",\r\n            \"lastName\": \"Redick07\",\r\n            \"role\": \"Main07\",\r\n            \"contribution\": \"Drafted this book07\"\r\n         },\r\n\t\t {\r\n            \"firstName\": \"Kimber07\",\r\n            \"lastName\": \"Alice07\",\r\n            \"role\": \"Support07\",\r\n            \"contribution\": \"completed book07\"\r\n         }\r\n\t\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:7777/book"
+			},
+			"response": []
+		},
+		{
+			"name": "BookUpdateById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\":\"1001000\",\r\n        \"isbn\": \"9781234568000\",\r\n        \"title\": \"Mystery of the Old House_u01\",\r\n        \"price\": 21.99,\r\n        \"publicationStatus\": \"published\",\r\n        \"bookCover\": \"http://example.com/cover2_u01.jpg\",\r\n        \"description\": \"A gripping mystery novel_u01.\",\r\n        \"publicationDate\": \"2023-03-16T05:30:00.000\",\r\n\t\t\"authors\":[\r\n\t\t {\r\n            \"authorId\": 1000001,\r\n            \"firstName\": \"John01\",\r\n            \"lastName\": \"Doe01\",\r\n            \"role\": \"Main writer_u01\",\r\n            \"contribution\": \"Write almost the whole book_u01\"\r\n         },\r\n\t\t {\r\n            \"authorId\": 1000051,\r\n            \"firstName\": \"Jane01\",\r\n            \"lastName\": \"Smith01\",\r\n            \"role\": \"Support writer_u01\",\r\n            \"contribution\": \"Finished the book_u01\"\r\n         }\r\n\t\t]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:7777/book"
+			},
+			"response": []
+		},
+		{
+			"name": "AuthorFindByName",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7777/author/find?firstName=Bob&lastName=Brown",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"author",
+						"find"
+					],
+					"query": [
+						{
+							"key": "firstName",
+							"value": "Bob"
+						},
+						{
+							"key": "lastName",
+							"value": "Brown"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthorFindAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7777/author?pageNum=1&pageSize=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"author"
+					],
+					"query": [
+						{
+							"key": "pageNum",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthorFindBooksByAuthorId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7777/author/findBooks?id=1000151&pageNum=1&pageSize=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7777",
+					"path": [
+						"author",
+						"findBooks"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1000151"
+						},
+						{
+							"key": "pageNum",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthorAddForm",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Nigel01\",\r\n  \"lastName\": \"Coling01\",\r\n  \"profilePicture\": \"https://example.com/profile01.jpg\",\r\n  \"biography\": \"Nigel Coling is a renowned author known for his captivating novels and insightful essays.\",\r\n  \"nationalityCode\": \"US\",\r\n  \"birthdate\": \"1989-06-04T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:7777/author"
+			},
+			"response": []
+		},
+		{
+			"name": "AuthorUpdateById",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\":\"1000851\",\r\n  \"firstName\": \"Nigel03\",\r\n  \"lastName\": \"Coling03\",\r\n  \"profilePicture\": \"https://example.com/profile03.jpg\",\r\n  \"biography\": \"Nigel Coling03 is a renowned author known for his captivating novels and insightful essays.\",\r\n  \"nationalityCode\": \"UK\",\r\n  \"birthdate\": \"1999-06-04T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:7777/author"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,23 @@
+server:
+  port: 7777
+
+musashi:
+  libraryApplication:
+    buildNumber: 1.1-alpha
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/library_jooq
+    username: postgres
+    password: postgres
+  flyway:
+    enabled: true
+    schemas: public
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    baseline-version: 1
+    baseline-description: "Baseline for existing schema"
+  jooq:
+    sql-dialect: POSTGRES
+  jpa:
+   open-in-view: false
